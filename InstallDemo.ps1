@@ -40,8 +40,9 @@
     Mail:           carlos.martinez@mataro.epiaedu.cat
     Creation Date:  19/01/2025
 #>
-# Application list
 # Array of applications to be installed
+# You can consult the list of available applications 
+# with the command: winget search
 $apps = @(
     "Mozilla.Firefox"
     "Google.Chrome"
@@ -49,7 +50,12 @@ $apps = @(
     "Microsoft.WindowsTerminal"
     "7zip.7zip"
 )
-
+# Test if executed as Administrator
+if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
+    Write-Host "Please run this script as an Administrator"
+    Read-Host -Prompt "Press Enter to exit"
+    exit
+}
 # Test if winget is installed
 
 try {
