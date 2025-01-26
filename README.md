@@ -2,7 +2,19 @@
 
 ## Overview
 
-InstallDemo is a project that demonstrates installation scripts written in PowerShell. This repository contains scripts and instructions to help you set up and run the installation process smoothly.
+InstallDemo is a PowerShell script that installs a list of software packages and tools on a Windows machine. The script is intended to be used for demo purposes, to quickly set up an environment with the required tools.
+
+You can customize the list of software packages by editing the `install.ps1` script. The script uses the `winget` package manager to install the software packages, so you can add any package available in the winget repository.
+
+```powershell
+$apps = @(
+    "Mozilla.Firefox"
+    "Google.Chrome"
+    "Microsoft.VisualStudioCode"
+    "Microsoft.WindowsTerminal"
+    "7zip.7zip"
+)
+```
 
 ## Prerequisites
 
